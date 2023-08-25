@@ -1,0 +1,379 @@
+{
+	"scopeName": "source.mkq",
+	"name": "mkq",
+	"fileTypes": [
+		"mkq",
+		"etq",
+		"myo"
+	],
+	"foldingStartMarker": "(<<)",
+	"foldingStopMarker": "(>>)",
+	"patterns": [
+		{
+			"match": "[\\;\\:\\^]",
+			"name": "keyword.separadores.mkq"
+		},
+		{
+			"include": "#eot"
+		},
+		{
+			"include": "#etx"
+		},
+		{
+			"include": "#stx"
+		},
+		{
+			"include": "#bel"
+		},
+		{
+			"include": "#bs"
+		},
+		{
+			"include": "#vt"
+		},
+		{
+			"include": "#enq"
+		},
+		{
+			"match": "((@>)(RPA|SQL|MKQ|MKPT|MKP|EXE|XLS|GRF|ARQ|EML|WWW|WSV|CAB|DFM))",
+			"name": "keyword.control.comandos.mkq"
+		},
+		{
+			"include": "#tags"
+		},
+		{
+			"include": "#comentario"
+		},
+		{
+			"include": "#aspas-duplas"
+		},
+		{
+			"include": "#aspas-simples"
+		},
+		{
+			"include": "#parameter-id"
+		},
+		{
+			"include": "#parameter-text"
+		},
+		{
+			"include": "#condicional"
+		},
+		{
+			"include": "#format"
+		},
+		{
+			"match": "(\\+>)",
+			"name": "keyword.vdd.mkq"
+		}
+	],
+	"repository": {
+		"tags": {
+			"match": "\\b(MKQ|PAP|ETQ|QTD|MRG|LEI|OUT|PDF|CAR|EDT|VDD|TIT|CAB|COR|DEF|DIM|OPC|OPP|PAR|FOG|MSI|MII|MFI|MSF|MIF|MFF|PLE|PLI|PLF|SQL|SQE|GRD|PRE)\\b",
+			"name": "keyword.control.tags.mkq"
+		},
+		"comentario": {
+			"begin": "(^\\s*\\-\\-)",
+			"end": "($)",
+			"name": "comment.line.double-dash.mkq",
+			"patterns": [
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				}
+			]
+		},
+		"aspas-duplas": {
+			"begin": "\\\"",
+			"end": "\\\"",
+			"name": "keyword.delimiter.aspas-duplas.mkq",
+			"patterns": [
+				{
+					"include": "#parameter-id"
+				},
+				{
+					"include": "#parameter-text"
+				},
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				},
+				{
+					"include": "#comentario"
+				}
+			]
+		},
+		"aspas-simples": {
+			"begin": "(')",
+			"end": "(')",
+			"name": "keyword.delimiter.aspas-simples.mkq",
+			"patterns": [
+				{
+					"include": "#parameter-id"
+				},
+				{
+					"include": "#parameter-text"
+				},
+				{
+					"include": "#format"
+				},
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				},
+				{
+					"include": "#comentario"
+				}
+			]
+		},
+		"parameter-text": {
+			"begin": "(\\{\\[)",
+			"end": "(\\]\\})|(?=\\')|(?=%)",
+			"name": "variable.parametro.text.mkq",
+			"patterns": [
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				},
+				{
+					"include": "#aspas-simples"
+				},
+				{
+					"include": "#aspas-duplas"
+				},
+				{
+					"include": "#comentario"
+				}
+			]
+		},
+		"parameter-id": {
+			"begin": "(\\[)",
+			"end": "(\\])|(?=\\')|(?=%)",
+			"name": "variable.parametro.id.mkq",
+			"patterns": [
+				{
+					"include": "#tags"
+				},
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				},
+				{
+					"include": "#aspas-simples"
+				},
+				{
+					"include": "#aspas-duplas"
+				},
+				{
+					"include": "#comentario"
+				}
+			]
+		},
+		"condicional": {
+			"begin": "(#>|##>)",
+			"end": "(<#{1,2})",
+			"name": "keyword.conditional.mkq",
+			"patterns": [
+				{
+					"include": "#parameter-text"
+				},
+				{
+					"include": "#parameter-id"
+				},
+				{
+					"include": "#format"
+				},
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				},
+				{
+					"include": "#aspas-simples"
+				},
+				{
+					"include": "#aspas-duplas"
+				},
+				{
+					"include": "#comentario"
+				}
+			]
+		},
+		"format": {
+			"begin": "(\\{+[^\\[|^\\'])",
+			"end": "([^\\]]\\}+)|(?=\\')|(?=%)",
+			"name": "keyword.delimiter.format.mkq",
+			"patterns": [
+				{
+					"include": "#parameter-text"
+				},
+				{
+					"include": "#parameter-id"
+				},
+				{
+					"include": "#eot"
+				},
+				{
+					"include": "#etx"
+				},
+				{
+					"include": "#stx"
+				},
+				{
+					"include": "#bel"
+				},
+				{
+					"include": "#bs"
+				},
+				{
+					"include": "#vt"
+				},
+				{
+					"include": "#enq"
+				},
+				{
+					"include": "#aspas-simples"
+				},
+				{
+					"include": "#aspas-duplas"
+				},
+				{
+					"include": "#comentario"
+				}
+			]
+		},
+		"numericos": {
+			"match": "(\\.|\\,)*([0-9])+(\\.|\\,)*",
+			"name": "keyword.numeric.decimal.mkq"
+		},
+		"eot": {
+			"match": "[\u0004]",
+			"name": "inv.character.eot.mkq"
+		},
+		"etx": {
+			"match": "[\u0003]",
+			"name": "inv.character.etx.mkq"
+		},
+		"stx": {
+			"match": "[\u0002]",
+			"name": "inv.character.stx.mkq"
+		},
+		"bel": {
+			"match": "[\u0007]",
+			"name": "inv.character.bel.mkq"
+		},
+		"bs": {
+			"match": "[\b]",
+			"name": "inv.character.bs.mkq"
+		},
+		"vt": {
+			"match": "[\u000b]",
+			"name": "inv.character.vt.mkq"
+		},
+		"enq": {
+			"match": "[\u0005]",
+			"name": "inv.character.enq.mkq"
+		}
+	}
+}
