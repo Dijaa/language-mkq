@@ -2,7 +2,7 @@
   "name": "language-mkq",
   "displayName": "Language MKQ",
   "description": "Syntax HighLighting for Language MKQ",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -13,13 +13,17 @@
     "languages": [{
       "id": "mkq",
       "aliases": ["Mkq", "mkq"],
-      "extensions": [".myo"],
+      "extensions": [".myo", ".mkq"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
       "language": "mkq",
-      "scopeName": "source.myo",
+      "scopeName": "source.mkq",
       "path": "./syntaxes/mkq.tmLanguage.json"
+    }],
+    "snippets": [{
+      "language": "mkq",
+      "path": "./snippets/snippets.json"
     }]
   }
 }
