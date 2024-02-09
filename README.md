@@ -1,15 +1,15 @@
-# language-mkq README
+# Language-MKQ README
 
-It's is a extesion to use when you are using the language MKQ, or OTM Suit
+This is an extension to use when you are working with the MKQ language or OTM Suit.
 
 ## Features
 
-On this first prewiew this extesion do the Syntax Highlight of .mkq and .myo
+In this initial preview, the extension provides syntax highlighting for `.mkq` and `.myo` files.
 
 ## Known Issues
 
-### 1.0.0
+###  1.0.0
 
-Initial release of Extesion
+This is the initial release of the extension.
 
-**It's my first extesion, so i can have some bug, have somethings to do and more things do finish to be better. Thank you for use it!**
+**Please note that this is my first extension, so there might be some bugs and things to improve. Your feedback is greatly appreciated! Thank you for using it!**
