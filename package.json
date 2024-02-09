@@ -2,7 +2,7 @@
   "name": "language-mkq",
   "displayName": "Language MKQ",
   "description": "Syntax HighLighting for Language MKQ",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "vscode": "^1.81.0"
   },
