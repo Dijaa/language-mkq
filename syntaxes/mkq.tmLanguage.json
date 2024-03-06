@@ -1,18 +1,33 @@
 {
   "scopeName": "source.mkq",
   "name": "mkq",
-  "fileTypes": ["mkq", "etq", "myo"],
+  "fileTypes": [
+    "mkq",
+    "etq",
+    "myo"
+  ],
   "foldingStartMarker": "(<<)",
   "foldingStopMarker": "(>>)",
   "patterns": [
     {
       "begin": "(\\[SQL\\]|\\@>SQL)",
-      "end": "\\@>|##>|\\[\\}",
+      "end": "\\@>|\\[\\}",
       "name": "source.sql",
       "patterns": [
         {
+          "begin": "(##>)",
+          "end": "(?![#>])",
+          "name": "keyword.conditional.mkq"
+        },
+        {
+        "begin": "(\\[SQL\\]|\\@>SQL)",
+        "end": "\\@>|##>|\\[\\}",
+        "name": "keyword.control.mkq"
+        },
+        {
           "include": "source.sql"
         }
+        
       ]
     },
     {
