@@ -1,15 +1,41 @@
-# Language-MKQ README
+# Language MKQ
 
-This is an extension to use when you are working with the MKQ language or OTM Suit.
+Syntax highlighting for the MKQ language used in OTM Suite.
 
 ## Features
+- MKQ syntax highlighting for `*.mkq`, `*.myo` and `*.etq`.
+- SQL embedding inside MKQ blocks, with fallback SQL rules if the external SQL grammar is not available.
+- Conditional, parameters and formatting delimiters highlighting.
 
-In this initial preview, the extension provides syntax highlighting for `.mkq` and `.myo` files.
+## SQL Embedding
+Two ways to start a SQL block (must be on its own line):
+- `[SQL]`
+- `@>SQL`
+
+The SQL block ends when reaching one of the following on its own line:
+- `@>MKQ` (ou qualquer outro `@>RPA|MKQ|MKPT|...`)
+- `[SQL]` (novo bloco)
+- `##>`
+- `]}` (fechamento de parâmetro/format)
+
+Exemplo:
+
+```
+-- isso é MKQ
+[SQL]
+select * from tabela where id = 10;
+@>MKQ
+texto normal mkq
+```
+
+Dica: use o comando “Developer: Reload Window” após instalar/atualizar a extensão. Para inspecionar escopos, use “Developer: Inspect Editor Tokens and Scopes”.
+
+## Conhecidas / Limitações
+- O fallback SQL cobre os principais keywords, tipos, strings, números, comentários e operadores. Quando a grammar oficial de `source.sql` estiver carregada, ela será usada automaticamente.
+- Delimitadores de bloco SQL são ancorados por linha para reduzir falsos positivos. Se você precisa usar marcadores inline, abra uma issue com um exemplo real.
+
+## Contribuir
+Sugestões, bugs e melhorias são bem-vindos via issues/PRs.
 
 ## Changelog
-###  1.0.0 
-This is the initial release of the extension.
-###  1.0.1 - 1.0.2
-Fixed READ.me
-
-**Please note that this is my first extension, so there might be some bugs and things to improve. Your feedback is greatly appreciated! Thank you for using it!**
+Veja o arquivo `CHANGELOG.md`.

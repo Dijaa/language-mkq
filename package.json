@@ -2,7 +2,7 @@
   "name": "language-mkq",
   "displayName": "Language MKQ",
   "description": "Syntax HighLighting for Language MKQ",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -28,7 +28,8 @@
         ],
         "extensions": [
           ".myo",
-          ".mkq"
+          ".mkq",
+          ".etq"
         ],
         "configuration": "./language-configuration.json"
       }
