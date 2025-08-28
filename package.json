@@ -37,7 +37,10 @@
       {
         "language": "mkq",
         "scopeName": "source.mkq",
-        "path": "./syntaxes/mkq.tmLanguage.json"
+        "path": "./syntaxes/mkq.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.sql": "sql"
+        }
       }
     ],
     "snippets": [

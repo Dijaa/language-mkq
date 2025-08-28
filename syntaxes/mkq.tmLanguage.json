@@ -1,88 +1,45 @@
 {
   "scopeName": "source.mkq",
   "name": "mkq",
-  "fileTypes": [
-    "mkq",
-    "etq",
-    "myo"
-  ],
+  "fileTypes": ["mkq", "etq", "myo"],
   "foldingStartMarker": "(<<)",
   "foldingStopMarker": "(>>)",
   "patterns": [
     {
-      "begin": "(\\[SQL\\]|\\@>SQL)",
-      "end": "\\@>|\\[\\}",
-      "name": "source.sql",
+      "begin": "^\\s*(?:\\[SQL\\]|@>SQL)\\s*$",
+      "end": "(?=^\\s*(?:@>(?:RPA|SQL|MKQ|MKPT|MKP|EXE|XLS|GRF|ARQ|EML|WWW|WSV|CAB|DFM)|\\[SQL\\]|##>|\\]\\}|$))",
+      "name": "meta.embedded.sql.mkq",
+      "beginCaptures": { "0": { "name": "keyword.control.mkq" } },
+      "contentName": "source.sql",
       "patterns": [
-        {
-          "begin": "(##>)",
-          "end": "(?![#>])",
-          "name": "keyword.conditional.mkq"
-        },
-        {
-        "begin": "(\\[SQL\\]|\\@>SQL)",
-        "end": "\\@>|##>|\\[\\}",
-        "name": "keyword.control.mkq"
-        },
-        {
-          "include": "source.sql"
-        }
-        
+        { "include": "source.sql" },
+        { "include": "#sql-fallback" }
       ]
     },
     {
       "match": "[\\;\\:\\^]",
       "name": "keyword.separadores.mkq"
     },
-    {
-      "include": "#eot"
-    },
-    {
-      "include": "#etx"
-    },
-    {
-      "include": "#stx"
-    },
-    {
-      "include": "#bel"
-    },
-    {
-      "include": "#bs"
-    },
-    {
-      "include": "#vt"
-    },
-    {
-      "include": "#enq"
-    },
+    { "include": "#eot" },
+    { "include": "#etx" },
+    { "include": "#stx" },
+    { "include": "#bel" },
+    { "include": "#bs" },
+    { "include": "#vt" },
+    { "include": "#enq" },
     {
       "match": "((@>)(RPA|SQL|MKQ|MKPT|MKP|EXE|XLS|GRF|ARQ|EML|WWW|WSV|CAB|DFM))",
       "name": "keyword.control.comandos.mkq"
     },
-    {
-      "include": "#tags"
-    },
-    {
-      "include": "#comentario"
-    },
-    {
-      "include": "#aspas-duplas"
-    },
-    {
-      "include": "#aspas-simples"
-    },
-    {
-      "include": "#parameter-id"
-    },
-    {
-      "include": "#parameter-text"
-    },
-    {
-      "include": "#condicional"
-    },
-    {
-      "include": "#format"
-    },
+    { "include": "#tags" },
+    { "include": "#comentario" },
+    { "include": "#aspas-duplas" },
+    { "include": "#aspas-simples" },
+    { "include": "#parameter-id" },
+    { "include": "#parameter-text" },
+    { "include": "#condicional" },
+    { "include": "#format" },
+    { "include": "#numericos" },
     {
       "match": "(\\+>)",
       "name": "keyword.vdd.mkq"
@@ -98,27 +55,13 @@
       "end": "($)",
       "name": "comment.line.double-dash.mkq",
       "patterns": [
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        }
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" }
       ]
     },
     "aspas-duplas": {
@@ -126,36 +69,16 @@
       "end": "\\\"",
       "name": "keyword.delimiter.aspas-duplas.mkq",
       "patterns": [
-        {
-          "include": "#parameter-id"
-        },
-        {
-          "include": "#parameter-text"
-        },
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        },
-        {
-          "include": "#comentario"
-        }
+        { "include": "#parameter-id" },
+        { "include": "#parameter-text" },
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" },
+        { "include": "#comentario" }
       ]
     },
     "aspas-simples": {
@@ -163,39 +86,17 @@
       "end": "(')",
       "name": "keyword.delimiter.aspas-simples.mkq",
       "patterns": [
-        {
-          "include": "#parameter-id"
-        },
-        {
-          "include": "#parameter-text"
-        },
-        {
-          "include": "#format"
-        },
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        },
-        {
-          "include": "#comentario"
-        }
+        { "include": "#parameter-id" },
+        { "include": "#parameter-text" },
+        { "include": "#format" },
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" },
+        { "include": "#comentario" }
       ]
     },
     "parameter-text": {
@@ -203,36 +104,16 @@
       "end": "(\\]\\})|(?=\\')|(?=%)",
       "name": "variable.parametro.text.mkq",
       "patterns": [
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        },
-        {
-          "include": "#aspas-simples"
-        },
-        {
-          "include": "#aspas-duplas"
-        },
-        {
-          "include": "#comentario"
-        }
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" },
+        { "include": "#aspas-simples" },
+        { "include": "#aspas-duplas" },
+        { "include": "#comentario" }
       ]
     },
     "parameter-id": {
@@ -240,39 +121,17 @@
       "end": "(\\])|(?=\\')|(?=%)",
       "name": "variable.parametro.id.mkq",
       "patterns": [
-        {
-          "include": "#tags"
-        },
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        },
-        {
-          "include": "#aspas-simples"
-        },
-        {
-          "include": "#aspas-duplas"
-        },
-        {
-          "include": "#comentario"
-        }
+        { "include": "#tags" },
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" },
+        { "include": "#aspas-simples" },
+        { "include": "#aspas-duplas" },
+        { "include": "#comentario" }
       ]
     },
     "condicional": {
@@ -280,121 +139,67 @@
       "end": "(<#{1,2})",
       "name": "keyword.conditional.mkq",
       "patterns": [
-        {
-          "include": "#parameter-text"
-        },
-        {
-          "include": "#parameter-id"
-        },
-        {
-          "include": "#format"
-        },
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        },
-        {
-          "include": "#aspas-simples"
-        },
-        {
-          "include": "#aspas-duplas"
-        },
-        {
-          "include": "#comentario"
-        }
+        { "include": "#parameter-text" },
+        { "include": "#parameter-id" },
+        { "include": "#format" },
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" },
+        { "include": "#aspas-simples" },
+        { "include": "#aspas-duplas" },
+        { "include": "#comentario" }
       ]
     },
     "format": {
-      "begin": "(\\{+[^\\[|^\\'])",
+      "begin": "(\\{+[^\\[\\'])",
       "end": "([^\\]]\\}+)|(?=\\')|(?=%)",
       "name": "keyword.delimiter.format.mkq",
       "patterns": [
-        {
-          "include": "#parameter-text"
-        },
-        {
-          "include": "#parameter-id"
-        },
-        {
-          "include": "#eot"
-        },
-        {
-          "include": "#etx"
-        },
-        {
-          "include": "#stx"
-        },
-        {
-          "include": "#bel"
-        },
-        {
-          "include": "#bs"
-        },
-        {
-          "include": "#vt"
-        },
-        {
-          "include": "#enq"
-        },
-        {
-          "include": "#aspas-simples"
-        },
-        {
-          "include": "#aspas-duplas"
-        },
-        {
-          "include": "#comentario"
-        }
+        { "include": "#parameter-text" },
+        { "include": "#parameter-id" },
+        { "include": "#eot" },
+        { "include": "#etx" },
+        { "include": "#stx" },
+        { "include": "#bel" },
+        { "include": "#bs" },
+        { "include": "#vt" },
+        { "include": "#enq" },
+        { "include": "#aspas-simples" },
+        { "include": "#aspas-duplas" },
+        { "include": "#comentario" }
       ]
     },
     "numericos": {
       "match": "(\\.|\\,)*([0-9])+(\\.|\\,)*",
       "name": "keyword.numeric.decimal.mkq"
     },
-    "eot": {
-      "match": "[\u0004]",
-      "name": "inv.character.eot.mkq"
+    "sql-fallback": {
+      "patterns": [
+        { "begin": "/\\*", "end": "\\*/", "name": "comment.block.sql" },
+        { "begin": "(^\\s*\\-\\-)", "end": "($)", "name": "comment.line.double-dash.sql" },
+        { "match": "\\b(?i:SELECT|INSERT|UPDATE|DELETE|FROM|WHERE|JOIN|INNER|LEFT|RIGHT|FULL|ON|AND|OR|NOT|NULL|IS|IN|LIKE|AS|ORDER|GROUP|BY|LIMIT|OFFSET|HAVING|DISTINCT|CREATE|ALTER|DROP|TABLE|INDEX|VIEW|DATABASE|SCHEMA|VALUES|SET|INTO|TOP|CASE|WHEN|THEN|ELSE|END|UNION|ALL|EXCEPT|INTERSECT)\\b", "name": "keyword.other.sql" },
+        { "match": "\\b(select|insert|update|delete|from|where|join|inner|left|right|full|on|and|or|not|null|is|in|like|as|order|group|by|limit|offset|having|distinct|create|alter|drop|table|index|view|database|schema|values|set|into|top|case|when|then|else|end|union|all|except|intersect)\\b", "name": "keyword.other.sql" },
+        { "match": "\\b(?i:ASC|DESC)\\b", "name": "storage.modifier.order.sql" },
+        { "match": "\\b(asc|desc)\\b", "name": "storage.modifier.order.sql" },
+        { "match": "\\b(?i:INT|INTEGER|SMALLINT|BIGINT|DEC|DECIMAL|NUMERIC|FLOAT|REAL|DOUBLE|DATE|TIME|TIMESTAMP|CHAR|VARCHAR|TEXT|BLOB|BOOLEAN|BIT)\\b", "name": "storage.type.sql" },
+        { "match": "\\b(int|integer|smallint|bigint|dec|decimal|numeric|float|real|double|date|time|timestamp|char|varchar|text|blob|boolean|bit)\\b", "name": "storage.type.sql" },
+        { "begin": "'", "end": "'", "name": "string.quoted.single.sql" },
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double.sql" },
+        { "match": "\\b[0-9]+(\\.[0-9]+)?\\b", "name": "constant.numeric.sql" },
+        { "match": "[(),.;]", "name": "punctuation.separator.sql" },
+        { "match": "[=*<>!+-]", "name": "keyword.operator.sql" }
+      ]
     },
-    "etx": {
-      "match": "[\u0003]",
-      "name": "inv.character.etx.mkq"
-    },
-    "stx": {
-      "match": "[\u0002]",
-      "name": "inv.character.stx.mkq"
-    },
-    "bel": {
-      "match": "[\u0007]",
-      "name": "inv.character.bel.mkq"
-    },
-    "bs": {
-      "match": "[\b]",
-      "name": "inv.character.bs.mkq"
-    },
-    "vt": {
-      "match": "[\u000b]",
-      "name": "inv.character.vt.mkq"
-    },
-    "enq": {
-      "match": "[\u0005]",
-      "name": "inv.character.enq.mkq"
-    }
+    "eot": { "match": "[\u0004]", "name": "inv.character.eot.mkq" },
+    "etx": { "match": "[\u0003]", "name": "inv.character.etx.mkq" },
+    "stx": { "match": "[\u0002]", "name": "inv.character.stx.mkq" },
+    "bel": { "match": "[\u0007]", "name": "inv.character.bel.mkq" },
+    "bs":  { "match": "[\b]",  "name": "inv.character.bs.mkq" },
+    "vt":  { "match": "[\u000b]", "name": "inv.character.vt.mkq" },
+    "enq": { "match": "[\u0005]", "name": "inv.character.enq.mkq" }
   }
 }
