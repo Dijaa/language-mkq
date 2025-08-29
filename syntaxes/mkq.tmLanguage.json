@@ -6,7 +6,7 @@
   "foldingStopMarker": "(>>)",
   "patterns": [
     {
-      "begin": "^\\s*(?:\\[SQL\\]|@>SQL)\\s*$",
+      "begin": "^\\s*(?:\\[SQL\\]|\\[PLI\\]|@>SQL)\\s*$",
       "end": "(?=^\\s*(?:@>(?:RPA|SQL|MKQ|MKPT|MKP|EXE|XLS|GRF|ARQ|EML|WWW|WSV|CAB|DFM)|\\[SQL\\]|##>|\\]\\}|$))",
       "name": "meta.embedded.sql.mkq",
       "beginCaptures": { "0": { "name": "keyword.control.mkq" } },

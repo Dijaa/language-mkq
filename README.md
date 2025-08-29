@@ -1,20 +1,24 @@
-# Language MKQ
+# Linguagem MKQ
 
-Syntax highlighting for the MKQ language used in OTM Suite.
+Realce de sintaxe para a linguagem MKQ utilizada na OTM Suite.
 
-## Features
-- MKQ syntax highlighting for `*.mkq`, `*.myo` and `*.etq`.
-- SQL embedding inside MKQ blocks, with fallback SQL rules if the external SQL grammar is not available.
-- Conditional, parameters and formatting delimiters highlighting.
+## Funcionalidades
+- Realce de sintaxe MKQ para `*.mkq`, `*.myo` e `*.etq`.
+- Incorporação de SQL dentro de blocos MKQ, com regras internas de fallback caso a gramática SQL externa não esteja disponível.
+- Realce de condicionais, parâmetros e delimitadores de formatação.
 
-## SQL Embedding
-Two ways to start a SQL block (must be on its own line):
+
+## Incorporação de SQL/PLI
+Três formas de iniciar um bloco SQL/PLI (deve estar em linha própria):
 - `[SQL]`
+- `[PLI]`
 - `@>SQL`
 
-The SQL block ends when reaching one of the following on its own line:
+
+O bloco termina ao encontrar um dos seguintes delimitadores em linha própria:
 - `@>MKQ` (ou qualquer outro `@>RPA|MKQ|MKPT|...`)
 - `[SQL]` (novo bloco)
+- `[PLI]` (novo bloco)
 - `##>`
 - `]}` (fechamento de parâmetro/format)
 

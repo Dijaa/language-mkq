@@ -1,6 +1,8 @@
 # Changelog
 
-All notable changes to the "language-mkq" extension.
+Todas as mudanças relevantes da extensão "language-mkq".
+## [1.2.0] - 2025-08-29
+- Suporte ao delimitador `[PLI]` para blocos SQL/PLI embutidos.
 
 ## [1.1.0] - 2025-08-28
 - SQL embedding refeito: 
@@ -14,8 +16,8 @@ All notable changes to the "language-mkq" extension.
 - Suporte de arquivo `.etq` adicionado ao `package.json` (já era suportado na grammar).
 - Adicionada configuração `embeddedLanguages` para mapear `source.sql` → `sql`.
 
-## [1.0.2] - 2023-??-??
-- Fix README.md
+## [1.0.2] - 2024-02-09
+- Correção no README.md
 
-## [1.0.0]
-- Initial release
+## [1.0.0] - 2023-08-28
+- Lançamento inicial
