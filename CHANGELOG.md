@@ -1,6 +1,8 @@
 # Changelog
 
 Todas as mudanças relevantes da extensão "language-mkq".
+## [1.2.1] - 2025-08-29
+- Adicionado ícone da extensão e corrigido caminho do ícone no `package.json`.
 ## [1.2.0] - 2025-08-29
 - Suporte ao delimitador `[PLI]` para blocos SQL/PLI embutidos.
 
